@@ -1932,20 +1932,24 @@
 
             _currentCallout.calloutOffset = anAnnotation.layer.calloutOffset;
 
-            if (anAnnotation.layer.leftCalloutAccessoryView)
-            {
-                if ([anAnnotation.layer.leftCalloutAccessoryView isKindOfClass:[UIControl class]])
-                    [anAnnotation.layer.leftCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
+            if (anAnnotation.layer.contentView) {
+                _currentCallout.contentView = anAnnotation.layer.contentView;
+            } else {
+                if (anAnnotation.layer.leftCalloutAccessoryView)
+                {
+                    if ([anAnnotation.layer.leftCalloutAccessoryView isKindOfClass:[UIControl class]])
+                        [anAnnotation.layer.leftCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
 
-                _currentCallout.leftAccessoryView = anAnnotation.layer.leftCalloutAccessoryView;
-            }
+                    _currentCallout.leftAccessoryView = anAnnotation.layer.leftCalloutAccessoryView;
+                }
 
-            if (anAnnotation.layer.rightCalloutAccessoryView)
-            {
-                if ([anAnnotation.layer.rightCalloutAccessoryView isKindOfClass:[UIControl class]])
-                    [anAnnotation.layer.rightCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
+                if (anAnnotation.layer.rightCalloutAccessoryView)
+                {
+                    if ([anAnnotation.layer.rightCalloutAccessoryView isKindOfClass:[UIControl class]])
+                        [anAnnotation.layer.rightCalloutAccessoryView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCalloutAccessoryWithGestureRecognizer:)]];
 
-                _currentCallout.rightAccessoryView = anAnnotation.layer.rightCalloutAccessoryView;
+                    _currentCallout.rightAccessoryView = anAnnotation.layer.rightCalloutAccessoryView;
+                }
             }
 
             _currentCallout.delegate = self;

@@ -49,6 +49,7 @@
 @synthesize calloutOffset;
 @synthesize leftCalloutAccessoryView;
 @synthesize rightCalloutAccessoryView;
+@synthesize contentView;
 
 - (id)init
 {
