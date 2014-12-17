@@ -1954,7 +1954,7 @@
 
             _currentCallout.delegate = self;
 
-            _currentCallout.permittedArrowDirection = SMCalloutArrowDirectionDown;
+            _currentCallout.permittedArrowDirection = SMCalloutArrowDirectionAny;
 
             [_currentCallout presentCalloutFromRect:anAnnotation.layer.bounds
                                             inLayer:anAnnotation.layer
